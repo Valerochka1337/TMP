@@ -116,9 +116,7 @@ class BST {
       Node* max = findMax(left_kid);
       left_kid = removeMax(left_kid);
       node->val = max->val;
-      Node* tmp  = max->left_kid;
       delete max;
-      return balance(node);
     }
     return balance(node);
   }
@@ -153,7 +151,11 @@ class BST {
   }
 
   void printRoot() {
-    std::cout << bfactor(root) << '\n';
+    if (root == nullptr){
+      std::cout << 0 << '\n';
+    } else {
+      std::cout << bfactor(root) << '\n';
+    }
   }
 };
 
